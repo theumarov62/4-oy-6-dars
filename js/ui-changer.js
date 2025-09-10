@@ -1,5 +1,11 @@
 import { deleteTodo, editTodo } from "./crud.js";
-import { elCardTemplate, elTodosContainer } from "./html-elements.js";
+import {
+  elCardTemplate,
+  elEditModal,
+  elEditModalDesc,
+  elEditModalTitle,
+  elTodosContainer,
+} from "./html-elements.js";
 
 export function uiChanger(todos) {
   elTodosContainer.innerHTML = null;
@@ -22,9 +28,9 @@ export function uiChanger(todos) {
 
     // EDIT
     elEditButton.addEventListener("click", () => {
-      const newTitle = prompt("Yangi nom:", element.title);
-      const newDescription = prompt("Yangi izoh", element.description);
-
+      elEditModal.classList.toggle("hidden");
+      const newTitle = elEditModalTitle;
+      const newDescription = elEditModalDesc;
       if (newTitle !== null && newDescription !== null) {
         editTodo(element.id, newTitle, newDescription);
       }

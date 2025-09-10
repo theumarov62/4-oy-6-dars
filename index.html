@@ -8,55 +8,74 @@
   </head>
   <body class="flex flex-col items-center">
     <ul id="todosContainer"></ul>
-    <div class="flex items-center gap-[10px] mt-[50px]">
-      <div class="flex flex-col gap-[10px] items-center">
-        <input
-          type="text"
-          id="inputAdd"
-          class="w-[140px] ml-[20px] mt-[20px] rounded-[4px]"
-        />
-        <span
-          id="errorTextInput"
-          class="text-[10px] ml-[20px] text-[red]"
-        ></span>
+    <main id="main">
+      <div class="flex items-center gap-[10px] mt-[50px]">
+        <div class="flex flex-col gap-[10px] items-center">
+          <input
+            type="text"
+            id="inputAdd"
+            class="w-[140px] ml-[20px] mt-[20px] rounded-[4px]"
+          />
+          <span
+            id="errorTextInput"
+            class="text-[10px] ml-[20px] text-[red]"
+          ></span>
 
-        <input
-          type="text"
-          id="inputDescAdd"
-          placeholder="Description..."
-          class="w-[140px] ml-[20px] rounded-[4px]"
-        />
+          <input
+            type="text"
+            id="inputDescAdd"
+            placeholder="Description..."
+            class="w-[140px] ml-[20px] rounded-[4px]"
+          />
+        </div>
+        <button
+          type="button"
+          id="add"
+          class="text-white bg-blue-700 ml-[20px] mt-[20px] cursor-pointer hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Add
+        </button>
       </div>
-      <button
-        type="button"
-        id="add"
-        class="text-white bg-blue-700 ml-[20px] mt-[20px] cursor-pointer hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      >
-        Add
-      </button>
-    </div>
 
-    <!-- Templates -->
-    <template id="cardTemplate">
-      <li
-        class="block max-w-sm p-6 bg-white border w-[600px] gap-[5px] border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
-      >
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"></h5>
-        <p class="font-normal text-gray-700"></p>
-        <button
-          type="button"
-          class="edit focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900"
+      <!-- Templates -->
+      <template id="cardTemplate">
+        <li
+          class="block max-w-sm p-6 bg-white border w-[600px] gap-[5px] border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
         >
-          Edit
-        </button>
-        <button
-          type="button"
-          class="delete focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-        >
-          Delete
-        </button>
-      </li>
-    </template>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"></h5>
+          <p class="font-normal text-gray-700"></p>
+          <button
+            type="button"
+            class="edit focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="delete focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          >
+            Delete
+          </button>
+        </li>
+      </template>
+    </main>
+
+    <div
+      class="hidden flex flex-col border-[2px] border-black p-[20px]"
+      id="editModal"
+    >
+      <input
+        id="editModalTitle"
+        type="text"
+        placeholder="Todo tahrir nomini kiriting"
+        class="w-[250px] h-[40px]"
+      />
+      <input
+        id="editModalDesc"
+        type="text"
+        placeholder="Todo tahrir izohini kiriting"
+      />
+    </div>
     <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="./js/app.js" type="module"></script>
   </body>
